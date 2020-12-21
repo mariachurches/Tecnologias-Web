@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Red social</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="..///bootstrap/css/bootstrap.min.css">
+<link rel="icon" href="..//icons/sn.png">
+<script src="..//jquery/Jquery-1.11.3.min.js"></script>
+<script src="..//bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="http://localhost:8080/tew2Servicios-2021-304-305/rest-jsapi"></script>
+<script type="text/javascript" src="..//javascript/functions_admin.js"></script>
+<meta charset="utf-8">
+
+</head>
+<body style="background-color: #F2F3F4">
+	<div class="container">
+		<div class="page-header">
+			<h1>Página inicial del administrador</h1>
+			<nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<p><img src="../icons/home.png" width="50" height="50" align="left" alt="No se pudo cargar la imagen" title=";)"/>
+					<a class="navbar-brand" href="#">Red Social</a></p>
+				</div>
+				<div>
+					<ul class="nav navbar-nav">
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Base de datos<span
+								class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="rBBDD.html">Reiniciar Base de datos</a></li>
+							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Usuarios<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="BorrarUsuario.html">Borrar usuarios</a></li>
+							</ul></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#" target="formulario" id="logout"><span
+								class="glyphicon glyphicon-log-out"></span> Logout .</a></li>
+					</ul>
+				</div>
+			</nav>
+
+		</div>
+
+
+		<div class="row">
+			<!-- 
+	***************************************************
+	* SECCION PRINCIPAL DE FORMULARIOS EXTERNOS********
+	***************************************************
+	-->
+			<div class="col-md-9">
+				<object name="formulario" type="text/hetml" data="login.html"
+					width="100%" height="425px"></object>
+			</div>
+
+
+
+			<!-- 
+	***************************************************
+	* ELEMENTO LATERAL INFORMATIVO ********************
+	***************************************************
+	-->
+			<div class="col-md-3 bg-infoAdmin">
+				<aside>
+					<header>
+						<h2>Proyecto Red social funciones del administrador</h2>
+					</header>
+					<p>En este usuario se incorporan las siguientes
+						funcionalidades:
+					<ol>
+						<li>Autenticación del administrador</li>
+						<li>Borrado de usuarios de la red social</li>
+						<li>Reinicio de la base de datos</li>
+						<li>Logout</li>
+					</ol>
+				</aside>
+			</div>
+
+
+		</div>
+
+		<!-- 
+	***************************************************
+	* ELEMENTO PIE DE NAVEGACION** ********************
+	***************************************************
+	-->
+
+		<div style="width: 100%; height: 20px; background-color: #F0F3F4;" id="blanco">
+		</div>
+		<div class="panel panel-default" id="info"></div>
+
+		<div class="panel panel-default">
+			<div class="panel-footer">
+				<nav>
+					<ul>
+						<li><a href="#" id="contacto">Contacto</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>
