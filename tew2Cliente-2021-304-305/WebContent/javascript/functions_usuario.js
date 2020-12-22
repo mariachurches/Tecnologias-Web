@@ -195,6 +195,16 @@ function Model(){
 		}catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
 		return null;
 	}
+	
+	//Borrar amigos
+	this.amigoOut = function(email){
+		try{this.usu = AmigossServicesRs.deleteAmigo({
+			type: "deleteAmigo",
+			email: email,
+			rolID:  sessionStorage.getItem('rol')
+		});}catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
+	}
+	
 
 	this.logout = function(){
 		var emails = sessionStorage.getItem('usuario');
@@ -236,7 +246,7 @@ function View(){
 			$("#tblListAmigos tbody").append("<tr> <td>" 
 					+"</td>"
 					+ "<td>" + a + "</td>"
-					+"<td>"+ "<button type='submit' class='btn btn-default' id='bdelete'>Borrar amigo </button>"+"</td>" 
+					+"<td><button type='submit' class='Delete' id='bdelete'>Borrar amigo </button></td>" 
 					+ "</tr>");
 		}
 	}
@@ -386,10 +396,14 @@ function Controller(varmodel, varview) {
 			}
 		}
 
-		
-		
-		$("#bdelete").click(function(event){
-			alert("boton");
+		$("#tblListAmigos").on("click", ".Delete",
+				//Metodo que gestiona el aceptar las invitaciones
+				function(event){
+			alert("llegue");
+			
+			var x = $(this).closest('tr').find('td').get(1).innerHTML;
+			alert("boton " + x);
+			//that.model.amigoOut(email);
 			return false;
 		}); 
 
