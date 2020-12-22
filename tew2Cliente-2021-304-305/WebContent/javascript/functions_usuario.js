@@ -51,7 +51,6 @@ function Model(){
 
 	//Conseguimos los amigos del usuario
 	this.obtenerAmigos = function(email){
-		alert(email);
 		try{this.amigos = PublicacionesServicesRs.getAmigos({
 			email: email,rolID:  sessionStorage.getItem('rol')		});
 		}
@@ -198,11 +197,13 @@ function Model(){
 	
 	//Borrar amigos
 	this.amigoOut = function(email){
-		try{this.usu = AmigossServicesRs.deleteAmigo({
+		alert(email);
+		try{
+			this.usu = AmigosServicesRs.deleteAmigo({
 			type: "deleteAmigo",
 			email: email,
 			rolID:  sessionStorage.getItem('rol')
-		});}catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
+		});}catch(error){console.log(error);alert("Acceso incorrecto");window.location.href="../login.html";}
 	}
 	
 
@@ -399,12 +400,10 @@ function Controller(varmodel, varview) {
 		$("#tblListAmigos").on("click", ".Delete",
 				//Metodo que gestiona el aceptar las invitaciones
 				function(event){
-			alert("llegue");
 			
 			var x = $(this).closest('tr').find('td').get(1).innerHTML;
-			alert("boton " + x);
-			//that.model.amigoOut(email);
-			return false;
+			that.model.amigoOut(x);
+
 		}); 
 
 

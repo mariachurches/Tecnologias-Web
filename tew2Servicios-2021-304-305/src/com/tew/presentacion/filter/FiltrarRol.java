@@ -51,6 +51,7 @@ public class FiltrarRol implements Filter {
         if(rr.contains("administrador")) rolr = "administrador";
         else if(rr.contains("usuario")) rolr="usuario";
         else rolr="desc";
+
         
         //Comparamos el usuario que esta en sesion con desde donde se manda la petición
         if((rol.contains("/todas/") && rolr=="desc") || (rol.contains("/admin/") && rolr=="administrador") || (rol.contains("/usuario/") && rolr=="usuario")) System.out.println("Acceso correcto");
