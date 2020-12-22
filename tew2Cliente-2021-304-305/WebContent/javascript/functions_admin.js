@@ -29,6 +29,7 @@ function Model(){
 		catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
 	}
 
+	//logout
 	this.logout = function(){
 		var emails = sessionStorage.getItem('usuario');
 		sessionStorage.removeItem('usuario');
@@ -40,7 +41,7 @@ function Model(){
 	}
 	
 
-
+	//Comparamos usuario en sesion con usuario a borrar
 	this.comprueba = function(select){
 		let usesion = this.usuariosEnSesion();
 		var indice = 0;
@@ -140,12 +141,6 @@ function Controller(varmodel, varview){
 				"<p>En cuanto direcciones de contacto disponibles tenemos: </p>"+
 				"<ol><li>Correo electronico: redSocial@gmail.com </li><li>Número de telefono fijo:+34 985543234</li><li>Movil:+34 654456689</li><li>Direccion de la sede: C/ Cadiz XIII n34 bajo</li></ol></aside>";
 		}); 
-
-
-
-
-
-
 
 	}
 

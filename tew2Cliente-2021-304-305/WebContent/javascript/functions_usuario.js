@@ -56,7 +56,7 @@ function Model(){
 		catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
 	}
 
-	//Obtener las listas de publicaciones
+	//Obtener las listas de publicaciones de mis amigos
 	this.listarPublicacionesAmigos = function(email){
 		try{this.publiAmigos = PublicacionesServicesRs.findByEmail({
 			type : "getPublicaciones",
@@ -77,7 +77,7 @@ function Model(){
 		});}catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
 	}
 
-	//Obtenemos la lista de Usuarios
+	//Obtenemos la lista de Usuarios sin admin sin login
 	this.todosUsuarios=null
 	this.tUsuarios = function(email){
 		try{this.todosUsuarios = UsuariosServicesRs.getUsuariosSinUsLogin({
@@ -111,7 +111,7 @@ function Model(){
 		});}catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
 	}
 
-	//LISTA
+	//LISTA NO AMIGOS DE UN USUARIO
 	this.listaNoAmistad=null;
 
 	this.listNA = function(email){
@@ -168,9 +168,6 @@ function Model(){
 		});}catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
 	}
 
-
-
-
 	//Lista de usuarios
 	this.usuarios = null;
 
@@ -224,6 +221,23 @@ function View(){
 					+ "<td>" + p.fechaCadena + "</td></tr>");
 		}
 	}
+	
+	this.listA = function(lista) {
+		$("#tblListAmigos").html("");
+		$("#tblListAmigos").html( "<thead>" + "<tr>" + "<th></th>"+"<th>ELIMINAR</th>" 
+				+ "<th>EMAIL</th>" + "<th>NOMBRE</th>"
+				+ "<th>ROL</th>" +  "</tr>"
+				+ "</thead>" + "<tbody>" + "</tbody>");
+		for ( var i in lista) {
+			var a = lista[i];
+			$("#tblListAmigos tbody").append("<tr> <td>" +
+					+ "<img src='../icons/delete.png' class='btnDelete'/> </td>"
+					+ "<td>" + a.email + "</td>"
+					+ "<td>" + a.nombre + "</td>" 
+					+ "<td>" + a.rol + "</td></tr>");
+		}
+	}
+	
 
 	this.loadPublicacionFromForm = function(){
 		//Cogemos la publicacion del formulario
@@ -328,6 +342,9 @@ function Controller(varmodel, varview) {
 
 		//Mostramos las publicaciones en pantalla
 		this.view.list(this.model.publicaciones);
+		
+		//Lista de amigos
+		this.view.listA(this.model.obtenerAmigos);
 
 		function cargarPublis(){
 			var loc = document.location + '';
@@ -363,7 +380,20 @@ function Controller(varmodel, varview) {
 			}
 		}
 
-
+		
+		$("#tblListAmigos").on("click", ".btnEdit",
+				// MÃ©todo que gestiona el evento de clickar en el evento
+				function(event) {
+			alert("hola");
+			// Obtenemos el id del alumno seleccionado mediante el icono de
+			// ediciÃ³n
+			//var id_alumno = that.view.getIdAlumno($(this));
+			// Obtenemos el alumno con el id_alumno
+			//var alumno = that.model.find(id_alumno);
+			// Cargamos el formulario con los datos del alumno seleccionado para
+			// editar
+			//that.view.loadAlumnoInForm(alumno);
+		});
 
 
 		this.model.listNA(user)

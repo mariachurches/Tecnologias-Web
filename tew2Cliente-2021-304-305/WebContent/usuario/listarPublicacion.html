@@ -11,7 +11,7 @@
 <script src="..//bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript"
-src="http://localhost:8080/tew2Servicios-2021-304-305/rest-jsapi"></script>
+	src="http://localhost:8080/tew2Servicios-2021-304-305/rest-jsapi"></script>
 
 <script type="text/javascript" src="..//javascript/functions_usuario.js"></script>
 
@@ -24,29 +24,37 @@ src="http://localhost:8080/tew2Servicios-2021-304-305/rest-jsapi"></script>
 			<h1>Página inicial del usuario</h1>
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
-					<p><img src="../icons/home.png" width="50" height="50" align="left" alt="No se pudo cargar la imagen" title=";)"/>
-					<a class="navbar-brand" href="indexUser.html">Red Social</a></p>
+					<p>
+						<img src="../icons/home.png" width="50" height="50" align="left"
+							alt="No se pudo cargar la imagen" title=";)" /> <a
+							class="navbar-brand" href="indexUser.html">Red Social</a>
+					</p>
 				</div>
 				<div>
 					<ul class="nav navbar-nav">
 						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="indexUser.html">Publicaciones<span class="caret"></span></a>
+							data-toggle="dropdown" href="indexUser.html">Publicaciones<span
+								class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="crearPublicacion.html">Crear publicaciones</a></li>
 								<li><a href="#">Listar publicaciones</a></li>
-								<li><a href="listarAmigos.html">Ver publicaciones de mis amigos</a></li>
+								<li><a href="listarAmigos.html">Ver publicaciones de
+										mis amigos</a></li>
 							</ul></li>
 						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">Amigos<span
-								class="caret"></span></a>
+							data-toggle="dropdown" href="#">Amigos<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="envioInvitacionesAmistad.html">Enviar invitaciones de amistad</a></li>
-								<li><a href="listarInvitacionesAmistad.html">Listado de inivitaciones de amistad</a></li>
+								<li><a href="envioInvitacionesAmistad.html">Enviar
+										invitaciones de amistad</a></li>
+								<li><a href="listarInvitacionesAmistad.html">Listado de
+										inivitaciones de amistad</a></li>
+								<li><a href="verAmigos.html">Ver mis amigos</a></li>
+
 							</ul></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#" target="formulario" id="logout"><span
-							class="glyphicon glyphicon-log-out"></span> Logout .</a></li>
+								class="glyphicon glyphicon-log-out"></span> Logout .</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -64,11 +72,14 @@ src="http://localhost:8080/tew2Servicios-2021-304-305/rest-jsapi"></script>
 			<div class="col-md-9">
 				<section>
 					<article class="table-responsive">
-						<table class="table table-striped table-responsive" id="tblListPublicaciones">
+						<table class="table table-striped table-responsive"
+							id="tblListPublicaciones">
 						</table>
-						
-						<input type="submit" value="Ordenar por Fecha" id="btnFecha" required class="btn btn-default" />
-						<input type="submit" value="Ordenar por Titulo" id="btnTitulo" required class="btn btn-default" />
+
+						<input type="submit" value="Ordenar por Fecha" id="btnFecha"
+							required class="btn btn-default" /> <input type="submit"
+							value="Ordenar por Titulo" id="btnTitulo" required
+							class="btn btn-default" />
 					</article>
 				</section>
 			</div>
@@ -91,7 +102,8 @@ src="http://localhost:8080/tew2Servicios-2021-304-305/rest-jsapi"></script>
 						<li>Crear nuevas publicaciones</li>
 						<li>Listar mis publicaciones</li>
 						<li>Enviar invitaciones de amistad a otros usuarios</li>
-						<li>Listado de las invitaciones de amistad recibidas y aceptar una invitacion de amistad</li>
+						<li>Listado de las invitaciones de amistad recibidas y
+							aceptar una invitacion de amistad</li>
 						<li>Ver las publicaciones de mis amigos</li>
 						<li>Logout</li>
 					</ol>
