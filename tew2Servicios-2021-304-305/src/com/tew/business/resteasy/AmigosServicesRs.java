@@ -43,6 +43,10 @@ public interface AmigosServicesRs extends AmigosService {
 	@DELETE
 	@Path("deleteAmigo/{email}")
 	void deleteAmigo(@PathParam("email") String email) throws EntityNotFoundException;
+	
+	@DELETE
+	@Path("deleteAmistad/{email}/{emailamigo}")
+	void deleteAmistad(@PathParam("email") String email, @PathParam("emailamigo") String emailamigo) throws EntityNotFoundException;
 
 	@DELETE
 	void deleteAll() throws EntityNotFoundException;

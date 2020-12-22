@@ -199,9 +199,10 @@ function Model(){
 	this.amigoOut = function(email){
 		alert(email);
 		try{
-			this.usu = AmigosServicesRs.deleteAmigo({
-			type: "deleteAmigo",
-			email: email,
+			this.usu = AmigosServicesRs.deleteAmistad({
+			type: "deleteAmistad",
+			email: sessionStorage.getItem('usuario'),
+			emailamigo: email,
 			rolID:  sessionStorage.getItem('rol')
 		});}catch(error){console.log(error);alert("Acceso incorrecto");window.location.href="../login.html";}
 	}

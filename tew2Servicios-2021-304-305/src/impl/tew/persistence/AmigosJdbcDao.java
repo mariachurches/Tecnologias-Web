@@ -551,6 +551,51 @@ public class AmigosJdbcDao implements AmigosDao {
 		System.out.print(lista.size());
 		return lista;
 	}
+
+
+	@Override
+	public void deleteAmistad(String email, String emailamigo) {
+		PreparedStatement ps = null;
+		PreparedStatement ps2 = null;
+		Connection con = null;
+		System.out.println("LLEÑEEEEEEEEEEEEEEEEEÑEÑEÑEÑEÑEÑEÑEEEEE " + email + " " + emailamigo);
+		try {
+			// En una implementaciï¿½ï¿½n mï¿½ï¿½s sofisticada estas constantes habrï¿½ï¿½a 
+			// que sacarlas a un sistema de configuraciï¿½ï¿½n: 
+			// xml, properties, descriptores de despliege, etc 
+			String SQL_DRV = "org.hsqldb.jdbcDriver";
+			String SQL_URL = "jdbc:hsqldb:hsql://localhost/localDB";
+
+			// Obtenemos la conexiï¿½ï¿½n a la base de datos.
+			Class.forName(SQL_DRV);
+			con = DriverManager.getConnection(SQL_URL, "sa", "");
+
+			ps = con.prepareStatement("delete from AMIGO where email_usuario = ? and email_amigo = ? ");
+			ps2 = con.prepareStatement("delete from AMIGO where email_usuario = ? and email_amigo = ? ");
+
+			ps.setString(1, email);
+			ps.setString(2, emailamigo);
+			
+			ps2.setString(1, emailamigo);
+			ps2.setString(2, email);
+			
+			ps.executeUpdate(); 
+			ps2.executeUpdate(); 
+
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			throw new PersistenceException("Driver not found", e);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new PersistenceException("Invalid SQL or database schema", e);
+		}
+		finally  {
+			if (ps != null) {try{ ps.close(); } catch (Exception ex){}};
+			if (con != null) {try{ con.close(); } catch (Exception ex){}};
+		}
+		
+	}
 	
 
 

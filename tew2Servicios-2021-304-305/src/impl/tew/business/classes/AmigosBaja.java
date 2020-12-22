@@ -28,4 +28,15 @@ public class AmigosBaja {
 			throw new EntityNotFoundException("No hay relaciones de amistad");
 		}
 	}
+
+	public void deleteAmistad(String email, String emailamigo) throws EntityNotFoundException {
+		AmigosDao dao = Factories.persistence.createAmigosDao();
+		try {
+			dao.deleteAmistad(email,emailamigo);
+		}
+		catch (Exception ex) {
+			throw new EntityNotFoundException("No hay relaciones de amistad");
+		}
+		
+	}
 }

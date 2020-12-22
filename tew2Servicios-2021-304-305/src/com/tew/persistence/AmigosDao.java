@@ -20,5 +20,6 @@ public interface AmigosDao {
 	void deleteAll() throws NotPersistedException;
 	void mutuo(String emailUsuario, String emailAmigo) throws AlreadyPersistedException;
 	List<Usuario> getNoAmigos(String email);
+	void deleteAmistad(String email, String emailamigo);
 	
 }

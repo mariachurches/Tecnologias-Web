@@ -66,6 +66,12 @@ public class AmigosServicesRsImpl implements AmigosServicesRs{
 		return new GetAmigos().getNoAmigos(email);
 	}
 
+	@Override
+	public void deleteAmistad(String email, String emailamigo) throws EntityNotFoundException {
+		new AmigosBaja().deleteAmistad(email, emailamigo);
+		
+	}
+
 
 
 }
