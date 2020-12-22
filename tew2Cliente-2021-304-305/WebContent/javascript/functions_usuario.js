@@ -197,7 +197,6 @@ function Model(){
 	
 	//Borrar amigos
 	this.amigoOut = function(email){
-		alert(email);
 		try{
 			this.usu = AmigosServicesRs.deleteAmistad({
 			type: "deleteAmistad",

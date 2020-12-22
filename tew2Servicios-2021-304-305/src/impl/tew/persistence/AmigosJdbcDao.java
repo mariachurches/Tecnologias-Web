@@ -558,7 +558,6 @@ public class AmigosJdbcDao implements AmigosDao {
 		PreparedStatement ps = null;
 		PreparedStatement ps2 = null;
 		Connection con = null;
-		System.out.println("LLEÑEEEEEEEEEEEEEEEEEÑEÑEÑEÑEÑEÑEÑEEEEE " + email + " " + emailamigo);
 		try {
 			// En una implementaciï¿½ï¿½n mï¿½ï¿½s sofisticada estas constantes habrï¿½ï¿½a 
 			// que sacarlas a un sistema de configuraciï¿½ï¿½n: 
