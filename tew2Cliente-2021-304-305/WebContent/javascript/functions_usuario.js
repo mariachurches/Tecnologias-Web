@@ -57,8 +57,8 @@ function Model(){
 		}
 		catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
 	}
-	
-	
+
+
 
 	//Obtener las listas de publicaciones de mis amigos
 	this.listarPublicacionesAmigos = function(email){
@@ -225,21 +225,22 @@ function View(){
 					+ "<td>" + p.fechaCadena + "</td></tr>");
 		}
 	}
-	
+
 	this.listA = function(lista) {
 		$("#tblListAmigos").html("");
 		$("#tblListAmigos").html( "<thead>" + "<tr>" + "<th></th>"
-				+ "<th>EMAIL</th>" +  "</tr>"
+				+ "<th>EMAIL</th>" +  "<th>ELIMINAR</th>"+"</tr>"
 				+ "</thead>" + "<tbody>" + "</tbody>");
 		for ( var i in lista) {
 			var a = lista[i];
 			$("#tblListAmigos tbody").append("<tr> <td>" 
-					+ "<img src='../icons/delete.png' class='btnDelete'/></td>"
+					+"</td>"
 					+ "<td>" + a + "</td>"
+					+"<td>"+ "<button type='submit' class='btn btn-default' id='bdelete'>Borrar amigo </button>"+"</td>" 
 					+ "</tr>");
 		}
 	}
-	
+
 
 	this.loadPublicacionFromForm = function(){
 		//Cogemos la publicacion del formulario
@@ -331,7 +332,7 @@ function Controller(varmodel, varview) {
 
 		//Cargamos la lista de usuarios
 		this.model.load();
-		
+
 		//Cargamos los amigos
 		this.model.obtenerAmigos(sessionStorage.getItem('usuario'));
 
@@ -347,7 +348,7 @@ function Controller(varmodel, varview) {
 
 		//Mostramos las publicaciones en pantalla
 		this.view.list(this.model.publicaciones);
-		
+
 		//Lista de amigos
 		this.view.listA(this.model.amigos);
 
@@ -386,25 +387,17 @@ function Controller(varmodel, varview) {
 		}
 
 		
-		$("#tblListAmigos").on("click", ".btnEdit",
-				// MÃ©todo que gestiona el evento de clickar en el evento
-				function(event) {
-			alert("hola");
-			// Obtenemos el id del alumno seleccionado mediante el icono de
-			// ediciÃ³n
-			//var id_alumno = that.view.getIdAlumno($(this));
-			// Obtenemos el alumno con el id_alumno
-			//var alumno = that.model.find(id_alumno);
-			// Cargamos el formulario con los datos del alumno seleccionado para
-			// editar
-			//that.view.loadAlumnoInForm(alumno);
-		});
+		
+		$("#bdelete").click(function(event){
+			alert("boton");
+			return false;
+		}); 
 
 
 		this.model.listNA(user)
 		var listaNoAmistadUser = this.model.listaNoAmistad; //NO amigos en la red social del usuario
 		this.view.listPeticiones(listaNoAmistadUser);
-		
+
 
 
 
