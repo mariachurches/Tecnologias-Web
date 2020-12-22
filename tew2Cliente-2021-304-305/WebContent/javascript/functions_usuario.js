@@ -51,10 +51,14 @@ function Model(){
 
 	//Conseguimos los amigos del usuario
 	this.obtenerAmigos = function(email){
+		alert(email);
 		try{this.amigos = PublicacionesServicesRs.getAmigos({
-			email: email,rolID:  sessionStorage.getItem('rol')		});}
+			email: email,rolID:  sessionStorage.getItem('rol')		});
+		}
 		catch(error){alert("Acceso incorrecto");window.location.href="../login.html";}
 	}
+	
+	
 
 	//Obtener las listas de publicaciones de mis amigos
 	this.listarPublicacionesAmigos = function(email){
@@ -224,17 +228,15 @@ function View(){
 	
 	this.listA = function(lista) {
 		$("#tblListAmigos").html("");
-		$("#tblListAmigos").html( "<thead>" + "<tr>" + "<th></th>"+"<th>ELIMINAR</th>" 
-				+ "<th>EMAIL</th>" + "<th>NOMBRE</th>"
-				+ "<th>ROL</th>" +  "</tr>"
+		$("#tblListAmigos").html( "<thead>" + "<tr>" + "<th></th>"
+				+ "<th>EMAIL</th>" +  "</tr>"
 				+ "</thead>" + "<tbody>" + "</tbody>");
 		for ( var i in lista) {
 			var a = lista[i];
-			$("#tblListAmigos tbody").append("<tr> <td>" +
-					+ "<img src='../icons/delete.png' class='btnDelete'/> </td>"
-					+ "<td>" + a.email + "</td>"
-					+ "<td>" + a.nombre + "</td>" 
-					+ "<td>" + a.rol + "</td></tr>");
+			$("#tblListAmigos tbody").append("<tr> <td>" 
+					+ "<img src='../icons/delete.png' class='btnDelete'/></td>"
+					+ "<td>" + a + "</td>"
+					+ "</tr>");
 		}
 	}
 	
@@ -329,6 +331,9 @@ function Controller(varmodel, varview) {
 
 		//Cargamos la lista de usuarios
 		this.model.load();
+		
+		//Cargamos los amigos
+		this.model.obtenerAmigos(sessionStorage.getItem('usuario'));
 
 		//Cargamos los usuarios en sesion
 		this.model.usesion = this.model.usuariosEnSesion();
@@ -344,7 +349,7 @@ function Controller(varmodel, varview) {
 		this.view.list(this.model.publicaciones);
 		
 		//Lista de amigos
-		this.view.listA(this.model.obtenerAmigos);
+		this.view.listA(this.model.amigos);
 
 		function cargarPublis(){
 			var loc = document.location + '';
@@ -399,7 +404,7 @@ function Controller(varmodel, varview) {
 		this.model.listNA(user)
 		var listaNoAmistadUser = this.model.listaNoAmistad; //NO amigos en la red social del usuario
 		this.view.listPeticiones(listaNoAmistadUser);
-
+		
 
 
 
